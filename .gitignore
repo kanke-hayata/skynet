@@ -1,0 +1,3 @@
+*.swp
+*.pyc
+**/data_processed/*.csv

@@ -1,0 +1,7 @@
+rospkg
+catkin_pkg
+pybitflyer
+websocket-client
+pandas
+numpy
+requests
