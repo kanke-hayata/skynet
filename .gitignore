@@ -1,3 +1,7 @@
 *.swp
 *.pyc
-**/data_processed/*.csv
+**/data/processed/*.csv
+**/data/raw/executions.csv
+**/.env
+**/.DS_Store
+**/*.png

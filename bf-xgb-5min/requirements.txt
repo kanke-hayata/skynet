@@ -1,8 +1,0 @@
-pybitflyer
-requests
-pandas
-TA-LIB
-matplotlib
-numpy 
-scikit-learn
-xgboost

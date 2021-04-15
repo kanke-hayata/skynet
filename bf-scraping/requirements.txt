@@ -1,3 +1,0 @@
-pybitflyer
-requests
-pandas

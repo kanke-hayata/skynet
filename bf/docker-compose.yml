@@ -1,0 +1,281 @@
+version: '3'
+
+networks:
+  ros:
+    #defaultのdriver
+    driver: bridge
+
+services:
+  rosmaster:
+    image: bot-bf:1.0
+    networks:
+      - ros
+    command: roscore
+    restart: always
+
+  websocket:
+    image: bot-bf:1.0
+    env_file:
+      - ./.env
+    volumes:
+      - "./src:/root/catkin_ws/src/bf"
+    environment:
+      - "ROS_MASTER_URI=http://rosmaster:11311"
+      - "ROS_HOSTNAME=websocket"
+    tty: true
+    networks:
+      - ros
+    depends_on:
+      - rosmaster
+    entrypoint: "/bin/bash -c"
+    command: >
+      'source /opt/ros/melodic/setup.bash &&
+      cd ~/catkin_ws &&
+      catkin build &&
+      source devel/setup.bash &&
+      rosrun bf bfws.py'
+    restart: always
+
+  T_1000:
+    image: bot-bf:1.0
+    volumes:
+      - "./src:/root/catkin_ws/src/bf"
+      - "./model/T_1000:/root/model/T_1000"
+    env_file:
+      - ./.env
+    environment:
+      - "ROS_MASTER_URI=http://rosmaster:11311"
+      - "ROS_HOSTNAME=T_1000"
+    tty: true
+    networks:
+      - ros
+    depends_on:
+      - rosmaster
+      - websocket
+    entrypoint: "/bin/bash -c"
+    command: >
+      'source /opt/ros/melodic/setup.bash &&
+      cd ~/catkin_ws &&
+      catkin build &&
+      source devel/setup.bash &&
+      rosrun bf T_1000.py'
+    restart: always
+
+  T_1001:
+    image: bot-bf:1.0
+    volumes:
+      - "./src:/root/catkin_ws/src/bf"
+      - "./model/T_1001:/root/model/T_1001"
+    env_file:
+      - ./.env
+    environment:
+      - "ROS_MASTER_URI=http://rosmaster:11311"
+      - "ROS_HOSTNAME=T_1001"
+    tty: true
+    networks:
+      - ros
+    depends_on:
+      - rosmaster
+      - websocket
+    entrypoint: "/bin/bash -c"
+    command: >
+      'source /opt/ros/melodic/setup.bash &&
+      cd ~/catkin_ws &&
+      catkin build &&
+      source devel/setup.bash &&
+      rosrun bf T_1001.py'
+    restart: always
+
+  T_1100:
+    image: bot-bf:1.0
+    volumes:
+      - "./src:/root/catkin_ws/src/bf"
+      - "./model/T_1100:/root/model/T_1100"
+    env_file:
+      - ./.env
+    environment:
+      - "ROS_MASTER_URI=http://rosmaster:11311"
+      - "ROS_HOSTNAME=T_1100"
+    tty: true
+    networks:
+      - ros
+    depends_on:
+      - rosmaster
+      - websocket
+    entrypoint: "/bin/bash -c"
+    command: >
+      'source /opt/ros/melodic/setup.bash &&
+      cd ~/catkin_ws &&
+      catkin build &&
+      source devel/setup.bash &&
+      rosrun bf T_1100.py'
+    restart: always
+
+  T_1102:
+    image: bot-bf:1.0
+    volumes:
+      - "./src:/root/catkin_ws/src/bf"
+      - "./model/T_1102:/root/model/T_1102"
+    env_file:
+      - ./.env
+    environment:
+      - "ROS_MASTER_URI=http://rosmaster:11311"
+      - "ROS_HOSTNAME=T_1102"
+    tty: true
+    networks:
+      - ros
+    depends_on:
+      - rosmaster
+      - websocket
+    entrypoint: "/bin/bash -c"
+    command: >
+      'source /opt/ros/melodic/setup.bash &&
+      cd ~/catkin_ws &&
+      catkin build &&
+      source devel/setup.bash &&
+      rosrun bf T_1102.py'
+    restart: always
+
+  T_2101:
+    image: bot-bf:1.0
+    volumes:
+      - "./src:/root/catkin_ws/src/bf"
+      - "./model/T_2101:/root/model/T_2101"
+    env_file:
+      - ./.env
+    environment:
+      - "ROS_MASTER_URI=http://rosmaster:11311"
+      - "ROS_HOSTNAME=T_2101"
+    tty: true
+    networks:
+      - ros
+    depends_on:
+      - rosmaster
+      - websocket
+    entrypoint: "/bin/bash -c"
+    command: >
+      'source /opt/ros/melodic/setup.bash &&
+      cd ~/catkin_ws &&
+      catkin build &&
+      source devel/setup.bash &&
+      rosrun bf T_2101.py'
+    restart: always
+
+  T_3000:
+    image: bot-bf:1.0
+    volumes:
+      - "./src:/root/catkin_ws/src/bf"
+      - "./model/T_3000:/root/model/T_3000"
+    env_file:
+      - ./.env
+    environment:
+      - "ROS_MASTER_URI=http://rosmaster:11311"
+      - "ROS_HOSTNAME=T_3000"
+    tty: true
+    networks:
+      - ros
+    depends_on:
+      - rosmaster
+      - websocket
+    entrypoint: "/bin/bash -c"
+    command: >
+      'source /opt/ros/melodic/setup.bash &&
+      cd ~/catkin_ws &&
+      catkin build &&
+      source devel/setup.bash &&
+      rosrun bf T_3000.py'
+    restart: always
+
+  T_3001:
+    image: bot-bf:1.0
+    volumes:
+      - "./src:/root/catkin_ws/src/bf"
+      - "./model/T_3001:/root/model/T_3001"
+    env_file:
+      - ./.env
+    environment:
+      - "ROS_MASTER_URI=http://rosmaster:11311"
+      - "ROS_HOSTNAME=T_3001"
+    tty: true
+    networks:
+      - ros
+    depends_on:
+      - rosmaster
+      - websocket
+    entrypoint: "/bin/bash -c"
+    command: >
+      'source /opt/ros/melodic/setup.bash &&
+      cd ~/catkin_ws &&
+      catkin build &&
+      source devel/setup.bash &&
+      rosrun bf T_3001.py'
+    restart: always
+
+  scraping:
+    image: bot-bf:1.0
+    volumes:
+      - "./src:/root/catkin_ws/src/bf"
+      - "./data:/root/data"
+    env_file:
+      - ./.env
+    tty: true
+    networks:
+      - ros
+    depends_on:
+      - rosmaster
+      - websocket
+    entrypoint: "/bin/bash -c"
+    command: >
+      'source /opt/ros/melodic/setup.bash &&
+      cd ~/catkin_ws &&
+      catkin build &&
+      source devel/setup.bash &&
+      rosrun bf scraping.py'
+    restart: always
+
+  scraping_executions:
+    image: bot-bf:1.0
+    volumes:
+      - "./src:/root/catkin_ws/src/bf"
+      - "./data:/root/data"
+    env_file:
+      - ./.env
+    tty: true
+    networks:
+      - ros
+    depends_on:
+      - rosmaster
+      - websocket
+    entrypoint: "/bin/bash -c"
+    command: >
+      'source /opt/ros/melodic/setup.bash &&
+      cd ~/catkin_ws &&
+      catkin build &&
+      source devel/setup.bash &&
+      rosrun bf scraping_executions.py'
+    restart: always
+
+  logger:
+    image: bot-bf:1.0
+    volumes:
+      - "./src:/root/catkin_ws/src/bf"
+      - "./model:/root/model"
+    env_file:
+      - ./.env
+    environment:
+      - "ROS_MASTER_URI=http://rosmaster:11311"
+      - "ROS_HOSTNAME=logger"
+    tty: true
+    networks:
+      - ros
+    depends_on:
+      - rosmaster
+      - websocket
+    entrypoint: "/bin/bash -c"
+    command: >
+      'source /opt/ros/melodic/setup.bash &&
+      cd ~/catkin_ws &&
+      catkin build &&
+      source devel/setup.bash &&
+      rosrun bf discordbot.py'
+    restart: always

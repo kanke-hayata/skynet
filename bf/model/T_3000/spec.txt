@@ -1,0 +1,3 @@
+2020-11-18 12:03:38.298630
+data_columns: ['MACDS/O', 'RSI', 'ATR/O', 'C/O', 'O-1/C', 'H/O', 'L/O', 'SignLine', '3SignLine']
+target_column: Target_Pure_Convergence

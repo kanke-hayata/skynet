@@ -1,0 +1,7 @@
+int32 id
+string side
+float32 price
+float32 size
+string exec_date
+string buy_child_order_acceptance_id
+string sell_child_order_acceptance_id

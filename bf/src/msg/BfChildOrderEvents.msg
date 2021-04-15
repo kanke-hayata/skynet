@@ -1,0 +1,14 @@
+string product_code
+string child_order_id
+string child_order_acceptance_id
+string event_date
+string event_type
+string child_order_type
+string expire_date
+string reason
+float32 exec_id
+string side
+float32 price
+float32 size
+float32 commission
+float32 sfd

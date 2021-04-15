@@ -1,0 +1,4 @@
+2020-10-26 21:18:01.052222
+data_columns: ['MACDS/O', 'UP', 'FirstUP', 'C/O', 'C-1/C', 'H/O', 'L/O']
+target_column: Target_C/O
+simplescore: 0.752

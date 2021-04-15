@@ -1,0 +1,4 @@
+2020-11-04 14:18:53.321437
+data_columns: ['RSI', 'Time', 'MACDM/O']
+target_column: Target_UP
+simplescore: 0.537
